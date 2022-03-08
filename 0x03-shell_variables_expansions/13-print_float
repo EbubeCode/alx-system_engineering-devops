@@ -1,2 +1,2 @@
 #!/bin/bash
-echo $NUM.00
+echo $(echo $NUM | cut -d. -f1).00
