@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# This script is loops through the files in the directory
+for i in *; do
+	echo "$i"  | cut -d - -f 2-
+done
