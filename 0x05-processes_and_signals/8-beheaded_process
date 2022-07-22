@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# will kill a bash process
+pkill --signal KILL -f 7-highlander
