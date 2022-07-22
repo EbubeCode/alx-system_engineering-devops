@@ -2,7 +2,7 @@
 # This script checks if a file exists
 x=school
 if [ -e "$x" ]; then
-	echo "school file exits"
+	echo "school file exist"
 	if [ -s "$x" ]; then
 		echo "school file is not empty"
 	else
