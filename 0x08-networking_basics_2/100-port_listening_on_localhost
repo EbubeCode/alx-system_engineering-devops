@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Creating a socket
+nc -l 98
