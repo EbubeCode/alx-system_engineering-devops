@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# remote login with ssh
+ssh -i ~/.ssh/school ubuntu@35.175.113.245
