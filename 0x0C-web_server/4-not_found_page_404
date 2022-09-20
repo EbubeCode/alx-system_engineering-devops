@@ -2,5 +2,8 @@
 # install nginx
 
 apt-get install nginx -y
+rm /var/www/html/index*.html
+echo 'Hello World!' > /var/www/html/index.html
 cat nginx.conf > /etc/nginx/sites-available/default
+echo "Ceci n'est pas une page" > /var/www/html/error-page.html
 service nginx restart
