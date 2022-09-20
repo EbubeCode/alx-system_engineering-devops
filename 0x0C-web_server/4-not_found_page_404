@@ -2,7 +2,5 @@
 # install nginx
 
 apt-get install nginx -y
-rm /var/www/html/index*.html
-echo 'Hello World!' > /var/www/html/index.html
 cat nginx.conf > /etc/nginx/sites-available/default
 service nginx restart
