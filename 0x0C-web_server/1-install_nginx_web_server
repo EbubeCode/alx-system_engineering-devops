@@ -3,5 +3,5 @@
 
 apt-get install nginx -y
 rm /var/www/html/*
-echo 'Hello World!' >> /var/www/html/index.html
+echo '<p>Hello World!</p>' >> /var/www/html/index.html
 service nginx restart
