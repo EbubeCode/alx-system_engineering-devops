@@ -1,3 +1,2 @@
-docker exec -ti 9bbf8c468954 /bin/bash
 service apache2 status
 service apache2 start
