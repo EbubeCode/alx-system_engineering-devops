@@ -21,6 +21,8 @@ node default {
   file {'/etc/nginx/sites-available/default':
     ensure  => present,
     content => $str,
+    require => Package['nginx'],
+    before  => Exec['restart'],
   }
   exec {'restart':
   command => '/usr/sbin/service nginx restart'
