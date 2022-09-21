@@ -13,7 +13,6 @@ node default {
     'rewrite ^/redirect_me(.*)$ https://www.youtube.com permanent;}',
     '}')
 
-
   package {'nginx':
     ensure => present,
     name   => 'nginx',
@@ -25,7 +24,7 @@ node default {
     before  => Exec['restart'],
   }
   exec {'restart':
-  command => '/usr/sbin/service nginx restart'
+  command => '/usr/bin/echo "Hello World!" > /var/www/html/index*.html; /usr/sbin/service nginx restart'
   }
 
 }
