@@ -24,7 +24,7 @@ node default {
     before  => Exec['restart'],
   }
   exec {'restart':
-  command => '/usr/bin/echo "Hello World!" > /var/www/html/index*.html; /usr/sbin/service nginx restart'
+  command => '/bin/echo "Hello World!" > /var/www/html/index*.html; /usr/sbin/service nginx restart'
   }
 
 }
