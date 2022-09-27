@@ -1,0 +1,29 @@
+# install and configure nginx
+node default {
+  $str = sprintf("%s\n%s\n%s\n%s\n%s\n%s\n%s\ns%\n%s\n%s\n",
+    'server {',
+    'listen 80 default_server;',
+    'listen [::]:80 default_server;',
+	"add_header X-Served-By $HOSTNAME;",
+    'root /var/www/html;',
+    'index index.html index.htm index.nginx-debian.html;',
+    'server_name _;',
+    'location / {',
+    'try_files $uri $uri/ =404;}',
+    '}')
+
+  package {'nginx':
+    ensure => present,
+    name   => 'nginx',
+  }
+  file {'/etc/nginx/sites-available/default':
+    ensure  => present,
+    content => $str,
+    require => Package['nginx'],
+    before  => Exec['restart'],
+  }
+  exec {'restart':
+  command => '/bin/echo "Hello World!" > /var/www/html/index*.html; /usr/sbin/service nginx restart'
+  }
+
+}
