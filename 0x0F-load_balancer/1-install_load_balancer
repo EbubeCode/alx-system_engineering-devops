@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# install haProxy
+
+conf="
+backend web-backend
+   	balance roundrobin
+   	server web-01 35.175.113.245:80 check
+   	server web-02 18.232.105.65:80 check
+
+frontend http
+  	bind *:80
+  	mode http
+
+	default_backend web-backend
+"
+apt-get update
+apt-get install haproxy=2.0.\* -y
+echo "$conf" >> /etc/haproxy/haproxy.cfg
+service haproxy restart
