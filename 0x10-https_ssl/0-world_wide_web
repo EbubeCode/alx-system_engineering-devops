@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # does dns resolution
 
-if ! [ -z "$1" ]; then
+if [ -n "$1" ]; then
 	if [ -z "$2" ]; then
 		dig "www.$1" | grep -A1 'ANSWER SECTION:' | tail -n 1 | \
 			awk '{ print "The subdomain www is a "$4" record and points to "$5 }'
