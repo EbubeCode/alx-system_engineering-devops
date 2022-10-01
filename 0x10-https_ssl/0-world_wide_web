@@ -1,19 +1,17 @@
 #!/usr/bin/env bash
 # does dns resolution
 
+dig_name() {
+	dig "$2.$1" | grep -A1 'ANSWER SECTION:' | tail -n 1 | \
+		awk -v dom="$2" '{print "The subdomain " dom " is a "$4" record and points to "$5 }'
+}
 if [ -n "$1" ]; then
 	if [ -z "$2" ]; then
-		dig "www.$1" | grep -A1 'ANSWER SECTION:' | tail -n 1 | \
-			awk '{ print "The subdomain www is a "$4" record and points to "$5 }'
-		dig "lb-01.$1" | grep -A1 'ANSWER SECTION:' | tail -n 1 | \
-			awk '{ print "The subdomain lb-01 is a "$4" record and points to "$5 }'
-		dig "web-01.$1" | grep -A1 'ANSWER SECTION:' | tail -n 1 | \
-			awk '{ print "The subdomain web-01 is a "$4" record and points to "$5 }'
-		dig "web-02.$1" | grep -A1 'ANSWER SECTION:' | tail -n 1 | \
-			awk '{ print "The subdomain web-02 is a "$4" record and points to "$5 }'
+		for sub in www lb-01 web-01 web-02
+		do
+			dig_name "$1" "$sub"
+		done
 	else
-		sub="$1"
-		dig "$2.$1" | grep -A1 'ANSWER SECTION:' | tail -n 1 | \
-			awk '{ print "The subdomain " $sub " is a "$4" record and points to "$5 }'
+		dig_name "$1" "$2"
 	fi
 fi
