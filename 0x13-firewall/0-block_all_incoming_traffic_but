@@ -1,5 +1,6 @@
 #!/usr/bin/bash
 # firewall config
+apt-get install ufw
 ufw deny incoming
 ufw allow 22/tcp
 ufw allow 443/tcp
