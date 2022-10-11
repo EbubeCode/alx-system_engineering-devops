@@ -1,4 +1,5 @@
 #!/usr/bin/bash
+# firewall config
 ufw deny incoming
 ufw allow 22
 ufw allow 443
