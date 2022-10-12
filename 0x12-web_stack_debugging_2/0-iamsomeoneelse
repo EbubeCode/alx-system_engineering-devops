@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# run commands as someone else
+su -l "$1" -c whoami
