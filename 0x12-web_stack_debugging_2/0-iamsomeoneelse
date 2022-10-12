@@ -1,3 +1,7 @@
 #!/usr/bin/env bash
 # run commands as someone else
-su -l "$1" -c whoami
+if [ -z "$1" ]; then
+	whoami
+else
+	su -l "$1" -c whoami
+fi
