@@ -16,7 +16,7 @@ if __name__ == "__main__":
     no_c = 0
     complete = ''
     for v in todos:
-        if v['completed']:
+        if v.get('completed'):
             if no_c != 0:
                 complete += "\n\t {}".format(v.get('title'))
             else:
