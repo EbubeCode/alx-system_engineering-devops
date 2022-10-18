@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# get employees
+''' get employee and tasks'''
 import sys
 import requests
 
