@@ -3,7 +3,7 @@
 import sys
 import requests
 
-if __name__ == "__main__" and len(sys.argv) >= 2:
+if __name__ == "__main__":
     id = sys.argv[1]
     req = f'https://jsonplaceholder.typicode.com/users/{id}'
     r = requests.get(req)
